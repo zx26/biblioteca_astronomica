@@ -6,7 +6,9 @@ import android.widget.*;
 import java.util.*;
 import android.view.*;
 import android.content.*;
-
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class MainActivity extends Activity 
 {
@@ -21,6 +23,8 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+	AppCenter.start(getApplication(), "0a01a7d3-5b2f-4011-99a9-c3ade3c83045",
+                  Analytics.class, Crashes.class);
 		
 		ex = (ExpandableListView)findViewById(R.id.ex);
 		expandableDetailList=ItemDataList.getData();
